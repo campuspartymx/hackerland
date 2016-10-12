@@ -1,0 +1,11 @@
+{% extends '../layout.html' %}
+
+{% block js %}
+<script type="text/javascript">window._csrf = "{{ csrf }}"</script>
+{% include "../react.html" %}
+{% endblock %}
+
+{% block content %}
+<div id="main" class="row">
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+.login-container {
+  max-width: 400px;
+  margin: 40px auto;
+  background: #fff; }
+
+.login-form {
+  padding: 20px;
+  background: #fff;
+  color: #333;
+  box-shadow: 1px 1px 6px #777; }
+  .login-form .login-header {
+    margin-bottom: 25px; }
+  .login-form a {
+    margin: 0 auto;
+    font-size: 12px; }
+  .login-form p {
+    margin-bottom: 15px; }

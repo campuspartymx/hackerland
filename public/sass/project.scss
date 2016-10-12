@@ -1,0 +1,142 @@
+$primaryColor: #09f;
+$next: desaturate($primaryColor, 50%);
+$green: green;
+$red: red;
+
+.vertical-picker{
+	margin-bottom: 25px;
+
+	h4{
+		margin-top: 0
+	}
+}
+
+.hackathon-picker{
+	margin-bottom: 25px;
+
+	h4{
+		margin-top: 0
+	}
+}
+
+.form-group.valid{
+	color: $green;
+
+	.form-control,
+	.select2-search input[type="text"]	{
+		color: $green;
+		border-color: $green;
+	}
+
+	.select-default .select2-choice{
+		border-color: $green;
+		color: $green;
+	}
+
+	.bootstrap-tagsinput{
+		border-color: $green;
+
+		.tag{
+			background: $green;
+			color: white;			
+		}
+	}
+
+	.checkbox input[type="checkbox"].custom-checkbox:checked + .icons .icon-checked,
+	.radio input[type="checkbox"].custom-checkbox:checked + .icons .icon-checked,
+	.checkbox input[type="radio"].custom-radio:checked + .icons .icon-checked,
+	.radio input[type="radio"].custom-radio:checked + .icons .icon-checked{
+		color:$green
+	}
+}
+
+.form-group.invalid{
+	color: $red;
+
+	.form-control,
+	.select2-search input[type="text"]	{
+		color: $red;
+		border-color: $red;
+	}	
+
+	.select-default .select2-choice{
+		border-color: $red;
+		color: $red;
+	}
+
+	.bootstrap-tagsinput{
+		border-color: $red;
+	}
+
+	.checkbox input[type="checkbox"].custom-checkbox:checked + .icons .icon-checked,
+	.radio input[type="checkbox"].custom-checkbox:checked + .icons .icon-checked,
+	.checkbox input[type="radio"].custom-radio:checked + .icons .icon-checked,
+	.radio input[type="radio"].custom-radio:checked + .icons .icon-checked{
+		color:$red
+	}	
+}
+
+.alert .form-progress{
+	font-size: 300%;
+    text-align: right;	
+}
+
+.team{
+	margin-top:20px;
+
+	> .row{
+	    margin: 0 0 8px 0;
+	    padding: 5px 0;
+	    background: #d3e8f3;
+		border: 1px solid;
+	}
+
+	.remove-col{
+		text-align: right;
+	}
+
+	> .row:last-child{
+		margin-bottom: 0;
+	}
+
+	.light-text{
+		color: #ccd5e0;
+	}
+
+	.remove-participant{
+		border: none;
+		background: none;
+		padding: 0;
+	}
+}
+
+.alert-instructions{
+	background: $primaryColor;
+	color: white;
+	border-bottom: 4px solid darken($primaryColor, 15%);
+
+	h3{
+		margin-top: 10px;
+		font-size: 1.3em;
+
+		small{
+			color: white;
+		}		
+	}
+}
+
+.alert-next{
+	background: $next;
+	color: white;
+	border-bottom: 4px solid darken($next, 15%);
+	
+	h3{
+		margin-top: 10px;
+		font-size: 1em;
+
+		small{
+			color: white;
+			font-size: .7em;
+		}
+	}	
+}

@@ -1,0 +1,46 @@
+{% extends '../login-layout.html' %}
+
+{% block title %}Log in - {{ hackathonStructure.hackathon.name }} {% endblock %}
+
+{% block head %}{% endblock %}
+
+{% block content %}
+<div class="col-md-6 col-md-offset-3 col-xs-12">
+	<form action="/login" method="POST" class="panel-widget panel panel-default">
+		<div class="login-form">
+			<div class="login-header">
+				<h4>Log in</h4>
+			</div>
+
+			{% if error %}
+				<p class="has-error">{{ error }}</p>
+			{% endif %}
+
+			<div class="form-group">
+				<p class="label-over-input">
+					<label>Email</label>
+				</p>
+				<input type="email" name="email" class="form-control login-field" value="" placeholder="Email" id="login-name" required="true">
+			</div>
+
+			<div class="form-group">
+				<p class="label-over-input">
+					<label>Password</label>
+				</p>
+				<input type="password" name="password" class="form-control login-field" value="" placeholder="Password" id="login-pass" required="true">
+			</div>
+
+			<input type="hidden" name="_csrf" value="{{ csrf }}">
+
+			<button class="btn btn-lg btn-block btn-primary" type="submit">Log in</button>
+			<div class="text-center">
+			{% if emailsActive %}
+				<a class="login-link" href="/recuperar-password">Recuperar password</a>
+			{% else %}
+				Para recuperar tu password contacta a los organizadores
+			{% endif %}
+			</div>
+		</div>
+	</form>
+</div>
+{% endblock %}

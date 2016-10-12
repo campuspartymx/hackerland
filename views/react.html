@@ -1,0 +1,5 @@
+{% if env == "development" %}
+	<script type="text/javascript" src="{{publicPath}}{{scriptSrc}}"></script>
+{% else %}
+	<script type="text/javascript" src="/assets/build/{{scriptSrc}}"></script>
+{% endif %}

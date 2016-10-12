@@ -1,0 +1,54 @@
+<!doctype>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>campus front</title>
+
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<link rel="stylesheet" href="/assets/vendors/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body class="page-error-body">
+	<div class="header">
+	<div class="container">
+		<a href="/"><img class="logo" src="/assets/imgs/logo-hackaton.png"></a>
+		<img class="secondary-logo pull-right" src="/assets/imgs/logo.png">
+	</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			{% if not user %}
+			<a href="/login" class="btn btn-default btn-inline inverse pull-right">Login</a>
+			{% endif %}
+			<div class="col-md-12 page-error">
+				<div>
+					<h1>{{ status }}</h1>
+				</div>
+
+				<div>
+					{% if status == 403 %}
+						<h2>Forbidden.</h2>
+						<p></p>
+					{% elif status == 404 %}
+						<h2>No encontrado</h2>
+						<p>Parece que te fuiste por el camino equivocado, pero siempre puedes regresar a casa</p>
+					{% else %}
+						<h2>Error en el server</h2>
+						<p>El sistema se ha tenido un problema, intenta de nuevo en breve.</p>
+					{% endif %}
+
+					<a href="/" class="btn btn-default btn-inline inverse">
+						<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+						HOME
+					</a>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+

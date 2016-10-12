@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="">
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{ hackathonName }}</title>
+
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<!-- Place favicon.ico in the root directory -->
+
+	<!-- build:css styles/main.css -->
+	<link rel="stylesheet" href="/assets/vendors/bootstrap/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="/assets/css/base.css">
+	<link rel="stylesheet" href="/assets/css/main.css">
+	<!-- endbuild -->
+
+	{% block head %}
+	{% endblock %}
+	<script src="/assets/vendors/admin-theme/js/jquery.js"></script>
+</head>
+<body>
+	<div class="header">
+		<div class="container">
+  			{% if hackathonData.value.logo %}
+			<a href="/"><img class="logo" src="{{ hackathonData.value.logo }}"></a>
+			{% else %}
+			<a href="/"><img class="logo" src="/assets/imgs/logo-hackaton.png"></a>
+			{% endif %}
+			<img class="secondary-logo pull-right" src="/assets/imgs/logo.png">
+		</div>
+	</div>
+
+	{% if not user %}
+		{% if hackathonData.value.banner %}
+		<img class="banner desktop-image" src="{{ hackathonData.value.banner }}">
+		{% endif %}
+	{% else %}
+		<nav class="navbar navbar-inverse navbar-embossed navbar-lg" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-04">
+						<span class="sr-only">Toggle navigation</span>
+					</button>
+					{% if sectionLink %}
+					<a class="navbar-brand" href="{{ sectionLink }}">{{ sectionName }}</a>
+					{% else %}
+					<div class="navbar-brand">{{ sectionName }}</div>
+					{% endif %}
+				</div>
+
+				<div class="collapse navbar-collapse" id="navbar-collapse-04">
+					<ul class="nav navbar-nav">
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ user.name }} <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							{% if user.isAdmin %}<li><a href="/admin">Admin</a></li>{% endif %}
+							<li><a href="/perfil">Perfil</a></li>
+							<li class="divider"></li>
+							<li><a href="/logout">Log out</a></li>
+						</ul>
+						</li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div>
+		</nav>	
+	{% endif %}
+
+	{% if breadcrumbs and breadcrumbs.length > 1 %}
+	<div class="breadcrumb-wrapper">
+		<div class="container">
+			<ul class="breadcrumb">
+				{% for breadcrumb in breadcrumbs %}
+					{% if loop.last %}
+					<li class="active"><a href="#">{{ breadcrumb.label }}</a></li>
+					{% else %}
+					<li><a href="{{ breadcrumb.link }}">{{ breadcrumb.label }}</a></li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+	{% endif %}	
+
+
+	<div class="container main-content">
+		{% block content %}{% endblock %}
+	</div>
+
+ 	<script src="/assets/vendors/bootstrap/js/bootstrap.min.js"></script>
+    {% block js %}{% endblock %}
+</body>
+</html>

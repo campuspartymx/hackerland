@@ -1,0 +1,36 @@
+<!doctype html>
+<html class="login-page">
+<head>
+	<meta charset="utf-8">
+	<title>{% block title %} {{ hackathonName }} {% endblock %}</title>
+
+	<link rel="stylesheet" href="/assets/vendors/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/assets/css/base.css">
+	<link rel="stylesheet" href="/assets/css/main.css">
+	<link rel="icon" href="/assets/imgs/favicon.png" type="image/png">
+
+	{% block head %}
+	{% endblock %}
+</head>
+<body>
+	<div class="header">
+		<div class="container">
+  			{% if hackathonData.value.logo %}
+			<a href="/"><img class="logo" src="{{ hackathonData.value.logo }}"></a>
+			{% else %}
+			<a href="/"><img class="logo" src="/assets/imgs/logo-hackaton.png"></a>
+			{% endif %}
+			<img class="secondary-logo pull-right" src="/assets/imgs/logo.png">
+		</div>
+	</div>
+
+	<img class="banner desktop-image" src="{{ hackathonData.value.banner }}">
+
+	<div class="container main-content">
+		{% block content %}{% endblock %}
+
+		<script src="/assets/vendors/admin-theme/js/jquery.js"></script>
+		{% block js %}{% endblock %}
+	</div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "rules": {
+    "eol-last": 2,
+    "max-len": [2, 300, 4],
+    "no-underscore-dangle": [0],
+    "no-var": 2,
+    "curly": 0,
+    "semi": 0,
+    "camelcase": 0
+  },
+  "env": {
+  	"es6": true
+  },
+  "plugins": [
+    "react"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  }
+}

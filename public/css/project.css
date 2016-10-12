@@ -1,0 +1,89 @@
+.vertical-picker {
+  margin-bottom: 25px; }
+  .vertical-picker h4 {
+    margin-top: 0; }
+
+.hackathon-picker {
+  margin-bottom: 25px; }
+  .hackathon-picker h4 {
+    margin-top: 0; }
+
+.form-group.valid {
+  color: green; }
+  .form-group.valid .form-control,
+  .form-group.valid .select2-search input[type="text"] {
+    color: green;
+    border-color: green; }
+  .form-group.valid .select-default .select2-choice {
+    border-color: green;
+    color: green; }
+  .form-group.valid .bootstrap-tagsinput {
+    border-color: green; }
+    .form-group.valid .bootstrap-tagsinput .tag {
+      background: green;
+      color: white; }
+  .form-group.valid .checkbox input[type="checkbox"].custom-checkbox:checked + .icons .icon-checked,
+  .form-group.valid .radio input[type="checkbox"].custom-checkbox:checked + .icons .icon-checked,
+  .form-group.valid .checkbox input[type="radio"].custom-radio:checked + .icons .icon-checked,
+  .form-group.valid .radio input[type="radio"].custom-radio:checked + .icons .icon-checked {
+    color: green; }
+
+.form-group.invalid {
+  color: red; }
+  .form-group.invalid .form-control,
+  .form-group.invalid .select2-search input[type="text"] {
+    color: red;
+    border-color: red; }
+  .form-group.invalid .select-default .select2-choice {
+    border-color: red;
+    color: red; }
+  .form-group.invalid .bootstrap-tagsinput {
+    border-color: red; }
+  .form-group.invalid .checkbox input[type="checkbox"].custom-checkbox:checked + .icons .icon-checked,
+  .form-group.invalid .radio input[type="checkbox"].custom-checkbox:checked + .icons .icon-checked,
+  .form-group.invalid .checkbox input[type="radio"].custom-radio:checked + .icons .icon-checked,
+  .form-group.invalid .radio input[type="radio"].custom-radio:checked + .icons .icon-checked {
+    color: red; }
+
+.alert .form-progress {
+  font-size: 300%;
+  text-align: right; }
+
+.team {
+  margin-top: 20px; }
+  .team > .row {
+    margin: 0 0 8px 0;
+    padding: 5px 0;
+    background: #d3e8f3;
+    border: 1px solid; }
+  .team .remove-col {
+    text-align: right; }
+  .team > .row:last-child {
+    margin-bottom: 0; }
+  .team .light-text {
+    color: #ccd5e0; }
+  .team .remove-participant {
+    border: none;
+    background: none;
+    padding: 0; }
+
+.alert-instructions {
+  background: #09f;
+  color: white;
+  border-bottom: 4px solid #006bb3; }
+  .alert-instructions h3 {
+    margin-top: 10px;
+    font-size: 1.3em; }
+    .alert-instructions h3 small {
+      color: white; }
+
+.alert-next {
+  background: #408cbf;
+  color: white;
+  border-bottom: 4px solid #2d6286; }
+  .alert-next h3 {
+    margin-top: 10px;
+    font-size: 1em; }
+    .alert-next h3 small {
+      color: white;
+      font-size: .7em; }

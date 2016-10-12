@@ -1,0 +1,93 @@
+{% extends '../layout.html' %}
+
+{% block title %}Perfil - {{ hackathonName }} {% endblock %}
+
+{% block content %}
+<div class="col-md-6 col-md-offset-3 col-xs-12">
+	<form action="" method="POST" class="panel-widget panel panel-default">
+		<div class="login-form">
+			<div class="login-header">
+				<h4>Actualizar datos</h4>
+			</div>
+
+			{% if error %}
+			<div class="alert alert-success" style="margin-top: 10px;">{{ error }}</div>
+			{% endif %}
+
+			<div class="form-group">
+				<p class="label-over-input">
+					<label>Nombre</label>
+				</p>
+				<input type="text" name="name" class="form-control" value="{{ user.name }}" placeholder="Nombre" required>
+			</div>
+
+			<div class="form-group">
+				<p class="label-over-input">
+					<label>Contraseña</label>
+				</p>
+				<input type="password" name="password" class="form-control" value="" placeholder="Contraseña">
+			</div>
+
+			{% if user.role == 'staff' and skills.length %}
+				<div id="skills" class="form-group">
+					<p class="label-over-input">
+						Habilidades
+					</p>
+					<p id="skills-instructions">
+						<label>Elige tus 3 mejores habilidades</label>
+					</p>
+
+					{% for skill in skills %}
+						{% set found = false %}
+
+						{% for skillName in user.skills %}
+							{% if skillName == skill %}
+								{% set found = true %}
+							{% endif %}
+						{% endfor %}
+
+						<div class="checkbox">
+							<label class="checkbox" for="{{skill}}">
+								<input type="checkbox" name="skills[]" value="{{skill}}" id="{{skill}}" data-toggle="checkbox" class="custom-checkbox" {% if found %}checked {% endif %}>
+								<span class="icons">
+									<span class="icon-unchecked"></span>
+									<span class="icon-checked"></span>
+								</span>
+
+								&nbsp; {{ skill }}
+							</label>
+						</div>
+					{% endfor %}
+				</div>
+			{% endif %}
+
+			<button id="update-button" class="btn btn-lg btn-block btn-primary" type="submit">Actualizar</button>
+		</div>
+	</form>
+</div>
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript">
+$(document).on('ready', function(){
+	var validateSkills = function(){
+		if($('#skills input:checked').length > 3){
+			$('#skills-instructions').addClass('has-error')
+			$('#update-button').addClass('disabled')
+		}else{
+			$('#skills-instructions').removeClass('has-error')
+			$('#update-button').removeClass('disabled')
+		}
+	}
+
+	$('#skills input').on('change', validateSkills)
+	validateSkills()
+
+	$('#update-button').on('click', function(e){
+		if($(this).hasClass('disabled')){
+			e.preventDefault()
+		}
+	})
+})
+</script>
+{% endblock %}

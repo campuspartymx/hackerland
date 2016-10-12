@@ -1,0 +1,14 @@
+node_modules
+.DS_Store
+public/vendors/.DS_Store
+
+public/build
+
+hacktracker.sublime-project
+hacktracker.sublime-workspace
+backup-*
+TODO.txt
+
+npm-debug.log
+
+.env

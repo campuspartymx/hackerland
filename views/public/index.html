@@ -1,0 +1,191 @@
+{% extends '../layout.html' %}
+
+{% block title %}Bienvenido al hackatón Campus Party{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="/assets/css/public.css">
+{% endblock %}
+
+{% block content %}
+<div class="row">
+	<div class="col-xs-12 col-md-8">
+		<h1>
+			Qué es el hackatón, premio y cómo participar.
+		</h1>
+		<p>En el <i>Hackathon Campus Party by Hackers and Founders</i>, los campuseros deberán pensar y desarrollar soluciones innovadoras para combatir una de las problemáticas más sensibles que tiene México: La pobreza a través de seis diferentes verticales</p>
+		<p>Un hackatón es una actividad donde se reúnen especialistas de diferentes disciplinas, con conocimientos complementarios para desarrollar una solución a un problema en concreto utilizando tecnología como un medio.</p>
+
+		<h2>Equipos</h2>
+		<p>Para participar en el hackatón necesitas formar un equipo, puedes hacerlo hasta que cierre el registro durante la primera evaluación.</p>
+		<p >Los equipos deberán estar integrados de <strong>entre 2 y 5 integrantes.</strong> No se aceptarán equipos de 1 solo campusero</p>
+		<p>Puedes agregar miembros a tu equipo hasta el demo del viernes por la mañana, momento en que la administración de equipos será deshabilitada.</p>
+
+		<h2>Verticales</h2>
+
+		<p>Para participar, deberás contar con tu acceso al Campus Party 2016. Registrar tu idea en esta misma plataforma y elegir la vertical en la cual piensas que esta participa. Estas son las verticales y algunos ejemplos de campos de trabajo: </p>
+		<ul class="simple-list">
+			<li><b>Inclusión financiera.</b> Créditos, sistemas de ahorro, sistemas de pago.</li>
+			<li><b>Inclusión laboral.</b> Sistemas de capacitación, reclutamiento, autoempleo, herramientas de eficientización.</li>
+			<li><b>Vivienda.</b> Materiales de construcción y modelos de vivienda alternativos. Aprovechamiento de espacios, sensores.</li>
+			<li><b>Salud.</b> Telemedicina accesible y funcional, medicamentos novedosos, sistemas de diagnóstico o investigación y desarrollo escalables, prótesis, dispositivos médicos.</li>
+			<li><b>Alimentación.</b> Alimentos alternativos más accesibles, nuevos ingredientes, sistemas de producción de alimentos escalables, herramientas para la extracción de nuevas fuentes de alimentación.</li>
+			<li><b>Educación.</b> Metodologías educativas, sistemas de capacitación escalables, videojuegos, VR/AR.</li>
+		</ul>
+		<p>Si deseas más informacion de cada vertical visita los booths de estas en la zona de hackatón.</p>
+
+		<h2>Etapas</h2>
+		<p>Una vez registrado el equipo, deberán solventar las siguientes etapas mientras se trabajan en la creación de la solución:</p>
+		<ul>
+			<li><b>Registro de alcances:</b> deberán establecer mediante un formulario en esta misma plataforma, los alcances que piensan completar en la construcción de la solución, así como describir el problema e impacto.</li>
+			<li><b>Demo de la solución:</b> tienen 3 minutos para presentar ante un panel de 3 jueces la solución sobre la cual están trabajando y las funcionalidades que esta tiene.</li>
+			<li><b>Presentación por vertical:</b> 10 equipos por cada vertical, con los proyectos mejor calificados, contarán con 5 minutos para presentar su proyecto ante un panel conformado por 5 jueces.</li>
+			<li><b>Presentación final:</b> Solamente 2 equipos por cada vertical tendrán la posibilidad de presentar, durante 5 minutos, ante un panel conformado por 15 jueces de distintos perfiles en el escenario principal de Campus Party.</br>
+			En esta fase, la ejecución técnica será evaluada a nivel de código previamente por un panel de expertos.
+			</li>
+		</ul>
+		<h2>Criterios de evaluación</h2>
+		<p>Los criterios con los que se evaluaran los projectos durante el hackatón son los siguientes:</p>
+		<ul>
+			<li><b>Impacto:</b> ¿A cuanta gente le soluciona la problemática tu desarrollo?.</li>
+			<li><b>Viabilidad:</b> ¿Es factible la ejecución de tu solución?.</li>
+			<li><b>Ejecución de la demo:</b> ¿Funciona tu solución al demostrarla a los jueces?. ¿Cumple con lo que prometió de manera fluida y sin errores?</li>
+			<li><b>Diseño:</b> ¿La solución es fácil de utilizar por el segmento de la población a la que busca servir?.</li>
+		</ul>
+
+		<h2>Premio</h2>
+		<p >El premio es de $1’000,000.00 de pesos para el equipo ganador.</p>
+		<p>Solamente un equipo será acreedor del premio.</p>
+
+		<h2>Entregables</h2>
+		<p>Para el entregable final, toma lo siguiente en cuenta:</p>
+		<ul>
+			<li><b>Móvil:</b> Aplicación móvil funcional con archivo ejecutable y código. (.apk, .ipa, .xap, etc.)</li>
+			<li><b>IoT, Hardware:</b> Dispositivo más código—si aplica.</li>
+			<li><b>Data Science:</b> Reporte de resultados (.xlsx, .xls, .csv, .pdf, .ppt, etc.)</li>
+			<li><b>WebApp/APIs:</b> Aplicación web funcional y código.</li>
+			<li><b>Social Business:</b> Video reporte de tracción con usuarios finales.</li>
+			<li><b>Video Juegos VR/AR:</b> Aplicación móvil, escritorio, consola o dispositivo más archivo ejecutable y código.</li>
+			<li><b>Ciudades Inteligentes:</b> Hablar con mentores</li>
+			<li><b>Salud y Biotecnología:</b> Hablar con mentores</li>
+		</ul>
+
+	{% if stage.name == 'reach' || stage.name == 'registration' %}
+		{% if error %}
+		<div class="alert alert-danger">
+			<button type="button" class="close fui-cross" data-dismiss="alert"></button>
+			{{ error }}
+		</div>
+		{% endif %}
+		<form id="registro" class="main-form" action="create-proyect" method="POST">
+			<h2>Registra tu proyecto</h2>
+			<label>Nombre del proyecto</label>
+			<input name="proyectName" placeholder="Nombre del proyecto" class="form-control" required/>
+			<label>Idea del proyecto</label>
+			<textarea name="proyectDescription" rows="3" placeholder="En una frase describe que quieres lograr" class="form-control" required></textarea>
+			<h3>Representante</h3>
+
+			<label>Nombre</label>
+			<input name="username" placeholder="Nombre" class="form-control" required/>
+
+			<label>Correo electronico</label>
+			<input type="email" name="email" placeholder="Correo electrónico" class="form-control" required/>
+
+			<label>Telefono</label>
+			<input name="phone" placeholder="Teléfono" class="form-control" required/>
+
+			<label>Fecha de Nacimiento(DD/MM/YYYY)</label>
+			<div id="birthdayPicker"></div>
+
+			<label>Dirección</label>
+			<input name="address" placeholder="Dirección" class="form-control" required/>
+
+			<label>Contrasena</label>
+			<input name="password" placeholder="Contraseña" class="form-control" type="password" required/>
+
+			<label class="checkbox" for="terms">
+				<input id="terms" type="checkbox" name="terms" data-toggle="checkbox" class="custom-checkbox" required>
+				<span class="icons">
+					<span class="icon-unchecked"></span>
+					<span class="icon-checked"></span>
+				</span>
+
+				Acepto <a href="http://campus-hackaton.mx/terminos-y-condiciones-hackaton-cpmx7-2016.pdf">términos y condiciones</a> del hackatón de Campus Party.
+			</label>
+
+			<label class="checkbox" for="history">
+				<input id="history" type="checkbox" name="history" data-toggle="checkbox" class="custom-checkbox" required>
+				<span class="icons">
+					<span class="icon-unchecked"></span>
+					<span class="icon-checked"></span>
+				</span>
+				Acepto y apruebo que mi Idea participe en el Concurso <a href="http://unaidea.tuhistory.com/index.php" target="_blank">Una Idea para Cambiar la Historia</a> de History Channel.
+			</label>
+
+			<label class="checkbox" for="history2">
+				<input id="history2" type="checkbox" name="history2" data-toggle="checkbox" class="custom-checkbox" required>
+				<span class="icons">
+					<span class="icon-unchecked"></span>
+					<span class="icon-checked"></span>
+				</span>
+				Reconozco haber leído y acepto todas las condiciones que se establecen en las <a href="http://unaidea.tuhistory.com/reglas.php"  target="_blank">Reglas</a> del Concurso Una Idea para Cambiar la Historia de History Channel</a>.
+			</label>
+
+			<input type="hidden" name="_csrf" value="{{ csrf }}">
+
+			<button class="btn btn-lg btn-block btn-success" type="submit">Registrar Proyecto</button>
+		</form>
+	{% else %}
+		<div class="alert alert-danger">
+			<p>El registro ha cerrado. Si ya estas registrado haz log in.</p>
+		</div>
+	{% endif %}
+	</div>
+
+	<div class="col-xs-12 col-md-4">
+		<div class="well">
+			<h3>Tips para el hackatón</h3>
+			<ul>
+				<li>Forma un equipo multidisciplinario.</li>
+				<li>Acota tu solución de forma que puedas, en el tiempo limitado con el que se cuenta, crear la mejor versión posible de la misma y no te quedes a medias.</li>
+				<li>Obtengan la mayor cantidad de datos posible para justificar el impacto y validación de la problemática que buscan solucionar.</li>
+				<li>No intentes encontrar el hilo negro. Adopta herramientas, bases de datos, frameworks que ya existen para que te enfoques en solucionar el problema y no pierdas valioso tiempo en el desarrollo desde cero.</li>
+				<li>Practica tu demo las mayor cantidad de veces posible. Ajustalo unos segundos debajo del tiempo límite ya que siempre tendemos a extendernos. Recuerda que los jueces solo tienen la información que presenten para tomar una decisión y sería una pena no seleccionar un buen proyecto porque no se alcanzó a presentar completo.</li>
+				<li>Enfoca tu demo en presentar la(s) funcionalidad(es) principal(es) de tu solución.</li>
+				<li><a href="https://docs.google.com/document/d/1PaoiJ7VAtzyXQD0rKtdVlg4j8N2Q6_HnyJ57StOQx6w/edit" target="_blank">Aprovecha estas herramientas que ponemos a tu disposición.</a></li>
+			</ul>
+		</div>
+	</div>
+
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="/assets/vendors/jquery-birthday-picker.min.js"></script>
+<script type="text/javascript">
+$(document). ready(function(){
+	function parseQuery(qstr) {
+		var query = {};
+		var a = qstr.substr(1).split('&');
+		for (var i = 0; i < a.length; i++) {
+		var b = a[i].split('=');
+		query[decodeURIComponent(b[0])] = decodeURIComponent(b[1] || '');
+		}
+		return query;
+	}
+
+	var query = parseQuery(window.location.search)
+
+	if(query.name){$('input[name="username"]').val(query.name)}
+	if(query.email){$('input[name="email"]').val(query.email)}
+
+	$("#birthdayPicker").birthdayPicker({
+		sizeClass: 'form-control select select-default mrs mbm',
+		placeholder: false,
+		dateFormat: 'littleEndian'
+	})
+
+	$('#birthdayPicker select').select2()
+})
+</script>
+{% include "../react.html" %}	
+{% endblock %}

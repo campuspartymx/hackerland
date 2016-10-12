@@ -1,0 +1,42 @@
+{% extends '../login-layout.html' %}
+
+{% block title %}Actualizar Información - Hackaton Campus Party{% endblock %}
+
+{% block head %}{% endblock %}
+
+{% block content %}
+<div class="login-wrapper">
+  <form action="" method="POST">
+    <div class="login-header">
+      <h4>Actualizar información</h4>
+    </div>
+
+    <div class="login-form">
+      <div class="form-group">
+        <p class="label-over-input">
+          <label>Nombre del Proyecto</label>
+        </p>
+        <input type="text" name="projectName" class="form-control login-field" value="{{ user.project.name }}" placeholder="Nombre" required>
+      </div>
+
+      <div class="form-group">
+        <p class="label-over-input">
+          <label>Idea del Proyecto</label>
+        </p>
+        <textarea name="proyectIdea" class="form-control"></textarea>
+      </div>
+
+      <div class="form-group">
+        <p class="label-over-input">
+          <label>Contraseña</label>
+        </p>
+        <input type="password" name="password" class="form-control login-field" value="" placeholder="Contraseña" id="login-pass" required>
+      </div>
+
+      <input type="hidden" name="_csrf" value="{{ csrf }}">
+
+        <button id="save-button" class="btn btn-lg btn-block btn-primary" type="submit">Actualizar</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

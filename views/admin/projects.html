@@ -1,0 +1,54 @@
+{% extends "../admin-layout.html" %}
+
+{% block content %}
+<table id="table-users" class='table table-bordered table-hover table-container'>
+	<thead>
+		<tr>
+			<td>Número</td>
+			<td>Name</td>
+			<td>Vertical</td>
+		</tr>
+	</thead>
+</table>
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript">
+	$(document).ready(function (){
+		$('#table-users').dataTable({
+			"ajax": {
+				"url": window.location.origin + '/api/projects/table',
+				"type": "POST"
+			},
+			"ordering": false,
+			"serverSide": true,
+			"scrollY": $(window).height() - 350,
+			"columns": [
+				{ "data": "number" },
+				{
+					"data": "name",
+					"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+						$(nTd).html("<a href='/admin/projects/"+oData.uuid+"'>"+oData.name+"</a>");
+					}
+				},
+				{ "data": "vertical" }
+			],
+			"language": {
+				"lengthMenu": " _MENU_  registros por página",
+				"emptyTable": "No hay datos para la tabla",
+				"info": "Mostrando _START_ a _END_ de _TOTAL_ registros",
+				"search": "Buscar",
+				"zeroRecords": "No hay registros",
+				"infoFiltered": "(Filtro de _MAX_ registros totales)",
+				"infoEmpty": "Mostrando 0 a 0 de 0 registros",
+				 "paginate": {
+					"previous": "Anterior",
+					"next": "Siguiente",
+					"first": "Primera",
+					"last": "Ultima"
+				 }
+			}
+		})
+	})
+</script>
+{% endblock %}

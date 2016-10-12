@@ -1,0 +1,44 @@
+{% extends "admin-layout.html" %}
+
+{% block js %}
+  {% include "../react.html" %}
+{% endblock %}
+
+{% block content %}
+<!-- widget -->
+<div class="row widget-container">
+	<div class="col-md-3">
+		<div class="widget widget-1">
+			<h5>{{stage.description.name}}</h5>
+			<hr>
+			<p>Etapa</p>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="widget widget-2">
+			<h3>{{participants}}</h3>
+			<hr>
+			<p>Participantes</p>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="widget widget-3">
+			<h3>{{projects}}</h3>
+			<hr>
+			<p>Projectos</p>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="widget widget-4">
+			<h3>{{staff}}</h3>
+			<hr>
+			<p>Staff</p>
+		</div>
+	</div>
+</div>
+<!-- end widget -->
+
+<div id="main" class="">
+
+</div>
+{% endblock %}
